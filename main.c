@@ -67,7 +67,7 @@ bool checkWin(int value)
 
 void printBoard()
 {
-    printf("\x1b[0;0H");
+    printf("\e[0;0H");
     for (int i = 0; i < SIZE; i++)
     {
         for (int j = 0; j < SIZE; j++)
@@ -87,7 +87,7 @@ int main()
     {
         printBoard();
         printf("%s 차례\n", player == BLACK ? "흑" : "백");
-        printf("\x1b[1M좌표 입력(x y): ");
+        printf("\e[1M좌표 입력(x y): ");
         scanf("%d %d", &x, &y);
         if (!put(x - 1, y - 1, player))
             continue;
@@ -96,7 +96,7 @@ int main()
         player = player == BLACK ? WHITE : BLACK;
     }
 
-    printf("\x1b[2J");
+    printf("\e[2J");
     printBoard();
     printf("%s 승리\n", player == BLACK ? "흑" : "백");
     pause();
